@@ -1,7 +1,7 @@
 import { Box } from "@mui/material"
 import Navbar from "@/components/Navbar"
-// import HeroSection from "@/components/HeroSection"
-
+import HeroSection from "@/components/HeroSection"
+import * as api from '../CocktailAPI/cocktail'
 
 export default function Home(props) {
   console.log(props)
@@ -13,7 +13,18 @@ export default function Home(props) {
       flexDirection: "column",
     }}>
       <Navbar />
-      {/* <HeroSection /> */}
+      <HeroSection {...props} />
     </Box>
   )
+}
+
+
+export async function getServerSideProps(context) {
+
+  const categories = await api.getCategories()
+  const randomDrinks = await api.getRandomDrinks(4)
+
+  return {
+    props: { categories, randomDrinks },
+  }
 }
