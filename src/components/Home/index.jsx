@@ -9,9 +9,9 @@ const HomePage = () => {
             justifyContent: 'space-around',
             alignItems: 'center',
             gap: '1rem',
-            height: '80vh',
+            height: '70vh',
             flexWrap: 'wrap',
-            backgroundColor: 'red',
+            // backgroundColor: 'pink',
         }}>
             {/* Left side */}
             <Box sx={{
@@ -19,19 +19,25 @@ const HomePage = () => {
                 flexDirection: 'column',
                 gap: '0.3rem',
                 alignItems: 'center',
+                // backgroundColor: 'green',
             }}>
-                <Typography color="#146C94" variant="h1">THE COCKTAIL</Typography>
-                <Typography color="#060F13" variant="h1">CORNER</Typography>
+                <Typography color="#146C94" fontSize={'3rem'}>THE COCKTAIL</Typography>
+                <Typography color="#060F13" fontSize={'3rem'}>CORNER</Typography>
             </Box>
             {/* right side image */}
             <Box sx={{
-                display: { xs: 'none', md: 'block' },
+                display: 'flex',
+                // backgroundColor: 'red',
+                width: '50%',
+                height: '60%',
+                padding: '1rem',
             }}>
                 <Image
+                    layout="responsive"
                     src='/hero.png'
                     alt='Verified'
-                    width={600}
-                    height={400}
+                    width={800}
+                    height={600}
                 />
             </Box>
 
