@@ -2,6 +2,7 @@ import { Box } from "@mui/material"
 import Navbar from "@/components/Navbar"
 import HeroSection from "@/components/HeroSection"
 import * as api from '../CocktailAPI/cocktail'
+import HomePage from "@/components/Home"
 
 export default function Home(props) {
   console.log(props)
@@ -13,6 +14,7 @@ export default function Home(props) {
       flexDirection: "column",
     }}>
       <Navbar />
+      <HomePage />
       <HeroSection {...props} />
     </Box>
   )

@@ -16,8 +16,8 @@ export default Product;
 
 export async function getServerSideProps(context) {
     const categories = await api.getCategories()
-    const categoriesData = await categories.json()
+    // const categoriesData = await categories.json()
     return {
-        props: { categoriesData }, // will be passed to the page component as props
+        props: { categories }, // will be passed to the page component as props
     }
 }
