@@ -8,7 +8,9 @@ import { CardActionArea, Box } from '@mui/material';
 
 const Categories = (props) => {
 
-    const categories = ['Alcoholic', 'Non-Alcoholic', 'Optional alcohol']
+    const { categories } = props;
+    const allcategories = categories.drinks.map((category) => category.strAlcoholic)
+
 
     return (
         <Box sx={{
@@ -31,24 +33,23 @@ const Categories = (props) => {
                 flexWrap: 'wrap',
                 gap: '2rem',
             }}>
-                {categories.map((category) => (
+                {allcategories.map((category) => (
                     <Card
                         sx={{ maxWidth: 345, minWidth: 250, }}
-                        key={category.strAlcoholic + Math.random().toString()}
+                        key={category + Math.random().toString()}
                         value={category}
-
                     >
                         <CardActionArea>
                             <CardMedia
                                 component="img"
-                                height="140"
-                                image="/static/images/cards/contemplative-reptile.jpg"
-                                alt="green iguana"
+                                height="240"
+                                image={`/alcoholic${1}.png`}
+                                alt="cocktail picture"
                                 onClick={(e) => console.log(category)}
                             />
                             <CardContent>
-                                <Typography gutterBottom variant="h5" component="div">
-                                    {category}
+                                <Typography gutterBottom variant="h6" component="div">
+                                    {category.toUpperCase()}
                                 </Typography>
                             </CardContent>
                         </CardActionArea>
