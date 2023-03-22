@@ -6,7 +6,7 @@ import Typography from '@mui/material/Typography';
 import { CardActionArea, Box } from '@mui/material';
 
 
-const Categories = () => {
+const Categories = (props) => {
 
     const categories = ['Alcoholic', 'Non-Alcoholic', 'Optional alcohol']
 
@@ -19,30 +19,42 @@ const Categories = () => {
             width: '100%',
             flexWrap: 'wrap',
             gap: '2rem',
+            backgroundColor: 'pink',
+            padding: '2rem',
         }}>
-            {categories.map((category) => (
-                <Card
-                    sx={{ maxWidth: 345, minWidth: 250, }}
-                    key={category.strAlcoholic + Math.random().toString()}
-                    value={category}
+            <Typography variant="h3" color="#146C94">Categories</Typography>
+            <Box sx={{
+                display: 'flex',
+                flexDirection: 'row',
+                alignItems: 'center',
+                justifyContent: 'space-around',
+                flexWrap: 'wrap',
+                gap: '2rem',
+            }}>
+                {categories.map((category) => (
+                    <Card
+                        sx={{ maxWidth: 345, minWidth: 250, }}
+                        key={category.strAlcoholic + Math.random().toString()}
+                        value={category}
 
-                >
-                    <CardActionArea>
-                        <CardMedia
-                            component="img"
-                            height="140"
-                            image="/static/images/cards/contemplative-reptile.jpg"
-                            alt="green iguana"
-                            onClick={(e) => console.log(category)}
-                        />
-                        <CardContent>
-                            <Typography gutterBottom variant="h5" component="div">
-                                {category}
-                            </Typography>
-                        </CardContent>
-                    </CardActionArea>
-                </Card>
-            ))}
+                    >
+                        <CardActionArea>
+                            <CardMedia
+                                component="img"
+                                height="140"
+                                image="/static/images/cards/contemplative-reptile.jpg"
+                                alt="green iguana"
+                                onClick={(e) => console.log(category)}
+                            />
+                            <CardContent>
+                                <Typography gutterBottom variant="h5" component="div">
+                                    {category}
+                                </Typography>
+                            </CardContent>
+                        </CardActionArea>
+                    </Card>
+                ))}
+            </Box>
         </Box>
 
     );
