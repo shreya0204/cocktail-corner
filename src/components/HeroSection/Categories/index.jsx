@@ -19,10 +19,11 @@ const Categories = (props) => {
             justifyContent: { xs: 'center', lg: 'space-between' },
             flexWrap: 'wrap',
             gap: '2rem',
-            backgroundColor: '#DDF8FF',
+            backgroundColor: '#F5F2EB',
             padding: '3rem',
+            marginTop: '4rem',
         }}>
-            <Typography variant="h4" color="#146C94">CATEGORIES</Typography>
+            <Typography fontSize={'32px'} color="#3F000F" fontWeight={'bold'}>CATEGORIES</Typography>
             <Box sx={{
                 display: 'flex',
                 flexDirection: 'row',
@@ -46,7 +47,7 @@ const Categories = (props) => {
                                 onClick={(e) => console.log(category, i)}
                             />
                             <CardContent>
-                                <Typography gutterBottom variant="h6" component="div">
+                                <Typography gutterBottom variant="h6" component="div" color={'#50151A'}>
                                     {category.toUpperCase()}
                                 </Typography>
                             </CardContent>

@@ -16,7 +16,7 @@ const BannerCard = ({ key, image }) => {
                     // }
                 }}
             >
-                <img src={image} width={"100%"} alt={"banner"} style={{ aspectRatio: '20/15' }} />
+                <img src={image} width={"100%"} alt={"banner"} style={{ aspectRatio: '12/8' }} />
             </Box>
         </>
     );

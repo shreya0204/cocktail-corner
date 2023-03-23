@@ -7,9 +7,9 @@ const HeroSection = (props) => {
         <Box sx={{
             display: 'flex',
             flexDirection: 'column',
-            // alignItems: 'center',
+            marginTop: '6rem',
         }}>
-            <Caraousel drinks={props.randomDrinks} />
+            <Caraousel randomDrinks={props.randomDrinks} />
             <Categories categories={props.categories} />
         </Box>
     )

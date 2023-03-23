@@ -5,43 +5,26 @@ const HomePage = () => {
     return (
         <Box sx={{
             display: 'flex',
-            flexDirection: 'row',
-            justifyContent: 'space-around',
+            justifyContent: 'center',
             alignItems: 'center',
-            gap: '1rem',
-            height: '70vh',
-            flexWrap: 'wrap',
-            // backgroundColor: 'pink',
+            backgroundImage: 'url(/hero.png)',
+            backgroundSize: 'cover',
+            backgroundRepeat: 'no-repeat',
+            backgroundPosition: 'center',
+            height: '670px',
+            backdropFilter: 'blur(70px)',
+            marginTop: '2rem',
         }}>
-            {/* Left side */}
             <Box sx={{
+                backgroundColor: 'rgba(0,0,0,0.5)',
                 display: 'flex',
                 flexDirection: 'column',
-                gap: '0.3rem',
+                justifyContent: 'center',
                 alignItems: 'center',
-                // backgroundColor: 'green',
             }}>
-                <Typography color="#146C94" fontSize={'3rem'}>THE COCKTAIL</Typography>
-                <Typography color="#060F13" fontSize={'3rem'}>CORNER</Typography>
+                <Typography color="#EDE6D7" fontSize={{ xs: '40px', sm: '64px' }} fontWeight={'bold'}>THE COCKTAIL CORNER</Typography>
             </Box>
-            {/* right side image */}
-            <Box sx={{
-                display: 'flex',
-                // backgroundColor: 'red',
-                width: '50%',
-                height: '60%',
-                padding: '1rem',
-            }}>
-                <Image
-                    layout="responsive"
-                    src='/hero.png'
-                    alt='Verified'
-                    width={800}
-                    height={600}
-                />
-            </Box>
-
-        </Box>
+        </Box >
     );
 }
 
