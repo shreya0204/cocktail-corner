@@ -5,7 +5,7 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { CardActionArea } from '@mui/material';
-import { alcoholicDrinks } from "../data"
+import { Padding } from "@mui/icons-material";
 
 
 const SingleCocktailCard = (props) => {
@@ -18,15 +18,16 @@ const SingleCocktailCard = (props) => {
             flexWrap: 'wrap',
             justifyContent: 'space-around',
             alignItems: 'center',
-            gap: 10
+            gap: 5,
+            padding: { xs: 1, md: 10 }
         }}>
             {allDrinksData.map((drink) => (
                 <Card
                     sx={{
-                        width: 305,
+                        width: 205,
                     }}
                     key={drink.idDrink}
-                    onClick={() => console.log(drink.idDrink)}
+                    onClick={() => console.log(drink.idDrink, drink.strAlcoholic)}
                 >
                     <CardActionArea>
                         <CardMedia

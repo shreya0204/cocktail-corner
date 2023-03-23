@@ -14,7 +14,7 @@ const Product = (props) => {
             flexDirection: "column",
         }}>
             <Navbar />
-            <Typography variant="h4" sx={{ textAlign: "center", mt: 5, mb: 10, color: '#146C94' }}>See All Our Drinks Here</Typography>
+            <Typography variant="h4" sx={{ textAlign: "center", mt: 5, mb: 5, color: '#3F000F', fontWeight: 'bold' }}>See All Our Drinks Here</Typography>
             <SingleCocktailCard allDrinksData={allDrinksData} />
         </Box>
     )
