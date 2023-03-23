@@ -62,3 +62,11 @@ export async function getRandomDrinks(n) {
     }
     return randomDrinks
 }
+
+
+export async function getAllDrinks() {
+    const url = `search.php?s=`
+    const drinksResponse = await cocktailAPI('GET', null, url)
+    const drinks = await drinksResponse.json()
+    return drinks
+}
