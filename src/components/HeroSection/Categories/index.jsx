@@ -11,20 +11,18 @@ const Categories = (props) => {
     const { categories } = props;
     const allcategories = categories.drinks.map((category) => category.strAlcoholic)
 
-
     return (
         <Box sx={{
             display: 'flex',
-            flexDirection: 'row',
+            flexDirection: 'column',
             alignItems: 'center',
-            justifyContent: 'space-around',
-            width: '100%',
+            justifyContent: { xs: 'center', lg: 'space-between' },
             flexWrap: 'wrap',
             gap: '2rem',
-            backgroundColor: 'pink',
-            padding: '2rem',
+            backgroundColor: '#DDF8FF',
+            padding: '3rem',
         }}>
-            <Typography variant="h3" color="#146C94">Categories</Typography>
+            <Typography variant="h4" color="#146C94">CATEGORIES</Typography>
             <Box sx={{
                 display: 'flex',
                 flexDirection: 'row',
@@ -33,7 +31,7 @@ const Categories = (props) => {
                 flexWrap: 'wrap',
                 gap: '2rem',
             }}>
-                {allcategories.map((category) => (
+                {allcategories.map((category, i) => (
                     <Card
                         sx={{ maxWidth: 345, minWidth: 250, }}
                         key={category + Math.random().toString()}
@@ -43,9 +41,9 @@ const Categories = (props) => {
                             <CardMedia
                                 component="img"
                                 height="240"
-                                image={`/alcoholic${1}.png`}
+                                image={`/alcoholic${i}.png`}
                                 alt="cocktail picture"
-                                onClick={(e) => console.log(category)}
+                                onClick={(e) => console.log(category, i)}
                             />
                             <CardContent>
                                 <Typography gutterBottom variant="h6" component="div">

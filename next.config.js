@@ -4,7 +4,9 @@ const nextConfig = {
   publicRuntimeConfig: {
     API_URL: 'https://www.thecocktaildb.com/api/json/v1/1',
   },
-
+  image: {
+    domains: ['https://www.thecocktaildb.com/images/media/drink'],
+  },
 }
 
 module.exports = nextConfig

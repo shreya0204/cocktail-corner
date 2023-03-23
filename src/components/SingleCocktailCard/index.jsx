@@ -8,9 +8,9 @@ import { CardActionArea } from '@mui/material';
 import { alcoholicDrinks } from "../data"
 
 
-const SingleCocktailCard = () => {
+const SingleCocktailCard = (props) => {
 
-    const drinks = alcoholicDrinks.drinks;
+    const { allDrinksData } = props;
 
     return (
         <Box sx={{
@@ -20,10 +20,10 @@ const SingleCocktailCard = () => {
             alignItems: 'center',
             gap: 10
         }}>
-            {drinks.map((drink) => (
+            {allDrinksData.map((drink) => (
                 <Card
                     sx={{
-                        width: 345,
+                        width: 305,
                     }}
                     key={drink.idDrink}
                     onClick={() => console.log(drink.idDrink)}
@@ -31,8 +31,8 @@ const SingleCocktailCard = () => {
                     <CardActionArea>
                         <CardMedia
                             component="img"
-                            height="220"
-                            image="/static/images/cards/contemplative-reptile.jpg"
+                            height="250"
+                            image={drink.strDrinkThumb}
                             alt="green iguana"
                         />
                         <CardContent>

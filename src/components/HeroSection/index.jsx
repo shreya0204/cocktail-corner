@@ -7,7 +7,7 @@ const HeroSection = (props) => {
         <Box sx={{
             display: 'flex',
             flexDirection: 'column',
-            alignItems: 'center',
+            // alignItems: 'center',
         }}>
             <Caraousel drinks={props.randomDrinks} />
             <Categories categories={props.categories} />
