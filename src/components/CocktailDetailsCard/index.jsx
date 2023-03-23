@@ -7,7 +7,7 @@ const CocktailDetails = (props) => {
     const { singleDrinkData } = props;
     console.log(singleDrinkData)
 
-    // filter all ingredients from singleDrinkData where ingredient!=null
+    // filtering out the ingredients and measures
     const ingredients = [];
     for (let i = 1; i <= 15; i++) {
         const ingredient = singleDrinkData[`strIngredient${i}`];
@@ -23,6 +23,8 @@ const CocktailDetails = (props) => {
             measures.push(measure);
         }
     }
+
+    const tags = singleDrinkData.strTags ? singleDrinkData.strTags.split(',') : [];
 
     return (
         <Box sx={{
@@ -61,7 +63,11 @@ const CocktailDetails = (props) => {
                     justifyContent: 'flex-start',
                     gap: 1
                 }}>
-                    <Chip label="Alcoholic" variant="outlined" />
+                    {
+                        tags.map((each) => (
+                            <Chip key={each + Math.random().toString()} variant="outlined" label={each} />
+                        ))
+                    }
                 </Box>
                 <Divider sx={{ width: '100%', mt: 3, mb: 2 }} />
                 <Box>
