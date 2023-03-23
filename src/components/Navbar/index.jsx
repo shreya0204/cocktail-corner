@@ -9,6 +9,7 @@ import InputBase from '@mui/material/InputBase';
 import MenuIcon from '@mui/icons-material/Menu';
 import SearchIcon from '@mui/icons-material/Search';
 import Image from 'next/image';
+import Link from 'next/link'
 
 const Search = styled('div')(({ theme }) => ({
     position: 'relative',
@@ -60,44 +61,28 @@ export default function Navbar() {
                 color: '#000',
                 boxShadow: 'none',
                 marginTop: '2rem',
-                // backgroundColor: '#EDE6D7',
             }}>
                 <Toolbar sx={{
                     display: 'flex',
                     justifyContent: 'space-between',
                 }}>
-                    {/* <Typography
-                        variant="h6"
-                        noWrap
-                        component="div"
-                        sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' }, fontFamily: 'Cormorant Garamond' }}
-                        onClick={() => window.location.href = '/'}
-                        style={{ cursor: 'pointer' }}
-                    >
-                        Cocktail
-                        <Image
-                            // layout="responsive"
-                            src='/logo.png'
-                            alt='Verified'
-                            width={200}
-                            height={60}
-                        />
-                    </Typography> */}
                     <Box sx={{
                         display: { xs: 'none', sm: 'block' },
                         cursor: 'pointer'
                     }}>
-                        <Image
-                            src='/logo.png'
-                            alt='Logo'
-                            width={160}
-                            height={60}
-                            onClick={() => window.location.href = '/'}
-                            sx={{
-                                flexGrow: 1,
-                            }}
-                        />
+                        <Link href="/">
+                            <Image
+                                src='/logo.png'
+                                alt='Logo'
+                                width={160}
+                                height={60}
+                                sx={{
+                                    flexGrow: 1,
+                                }}
+                            />
+                        </Link>
                     </Box>
+                    {/* search query */}
                     <Search>
                         <SearchIconWrapper>
                             <SearchIcon />

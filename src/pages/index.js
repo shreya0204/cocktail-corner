@@ -3,20 +3,24 @@ import Navbar from "@/components/Navbar"
 import HeroSection from "@/components/HeroSection"
 import * as api from '../CocktailAPI/cocktail'
 import HomePage from "@/components/Home"
+import Head from "next/head"
 
 export default function Home(props) {
-  console.log(props)
   const { categories, randomDrinks } = props
-  console.log(categories, randomDrinks)
+
   return (
-    <Box sx={{
-      display: "flex",
-      flexDirection: "column",
-    }}>
-      <Navbar />
-      <HomePage />
-      <HeroSection {...props} />
-    </Box>
+    <>
+      <Head>
+        <title>Cocktail</title>
+      </Head>
+      <Box sx={{
+        display: "flex",
+        flexDirection: "column",
+      }}>
+        <HomePage />
+        <HeroSection {...props} />
+      </Box>
+    </>
   )
 }
 

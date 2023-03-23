@@ -8,7 +8,7 @@ import ArrowForwardIosSharpIcon from "@mui/icons-material/ArrowForwardIosSharp";
 const Caraousel = (props) => {
 
     const { randomDrinks } = props;
-    console.log("All drinks", randomDrinks[0].drinks[0].strDrinkThumb);
+    // console.log("All drinks", randomDrinks[0].drinks[0].strDrinkThumb);
 
     const refCard = useRef(null);
     const scrollDiv = (scrollOffset, ref) => {
@@ -47,7 +47,7 @@ const Caraousel = (props) => {
 
             <Box width={{ md: '50vw', xs: '100vw' }} padding={5}>
                 <Typography color="#50151A" fontSize={{ xs: '30px', sm: '48px' }} fontWeight={'bold'}>THE COCKTAIL BLISS</Typography>
-                <Typography color="#000" fontSize={{ xs: '10px', sm: '16px' }} lineHeight={{ xs: '1.2rem', sm: '2rem' }} mt={4} fontWeight={'light'}>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                <Typography color="#906468" fontSize={{ xs: '10px', sm: '16px' }} lineHeight={{ xs: '1.2rem', sm: '2rem' }} mt={4} fontWeight={'light'}>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
                     incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
                     exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
                     dolor in reprehenderit in voluptate velit esse cillumLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
@@ -55,7 +55,6 @@ const Caraousel = (props) => {
                     exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
                     dolor in reprehenderit in voluptate velit esse cillum</Typography>
             </Box>
-
         </Box>
     )
 }
