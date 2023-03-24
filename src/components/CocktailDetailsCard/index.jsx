@@ -110,7 +110,7 @@ const CocktailDetails = (props) => {
                 <Divider sx={{ width: '100%', mt: 2, mb: 2 }} />
                 <Box>
                     <Typography color="#000" fontSize={{ xs: '10px', sm: '16px' }} >INSTRUCTION</Typography>
-                    <Typography color="#757272" fontSize={{ xs: '10px', sm: '14px' }} lineHeight={{ xs: '1.2rem', sm: '2rem' }} mt={4} fontWeight={'light'}>{singleDrinkData.strInstructions}</Typography>
+                    <Typography color="#757272" fontSize={{ xs: '12px', sm: '14px' }} lineHeight={{ xs: '1.2rem', sm: '2rem' }} mt={2} fontWeight={'light'}>{singleDrinkData.strInstructions}</Typography>
                 </Box>
             </Box>
         </Box>
