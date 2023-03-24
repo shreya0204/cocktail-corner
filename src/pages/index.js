@@ -28,7 +28,7 @@ export default function Home(props) {
 export async function getServerSideProps(context) {
 
   const categories = await api.getCategories()
-  const randomDrinks = await api.getRandomDrinks(4)
+  const randomDrinks = await api.getRandomDrinks(6)
 
   return {
     props: { categories, randomDrinks },

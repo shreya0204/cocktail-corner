@@ -4,16 +4,22 @@ import { Fab } from "@mui/material";
 import { useRef } from "react";
 import ArrowBackIosSharpIcon from "@mui/icons-material/ArrowBackIosSharp";
 import ArrowForwardIosSharpIcon from "@mui/icons-material/ArrowForwardIosSharp";
+import Link from 'next/link';
 
 const Caraousel = (props) => {
 
     const { randomDrinks } = props;
-    // console.log("All drinks", randomDrinks[0].drinks[0].strDrinkThumb);
 
     const refCard = useRef(null);
     const scrollDiv = (scrollOffset, ref) => {
         ref.current.scrollLeft += scrollOffset;
     };
+
+    const nameMapping = {
+        'Alcoholic': 'Alcoholic',
+        'Non alcoholic': 'Non_Alcoholic',
+        'Optional alcohol ': 'Optional_Alcohol'
+    }
 
     return (
         <Box sx={{
@@ -22,7 +28,6 @@ const Caraousel = (props) => {
             justifyContent: 'center',
             flexDirection: { md: 'row', xs: 'column' },
             padding: '1rem',
-            // backgroundColor: 'blue',
         }}>
             <Box position={"relative"} width={{ md: '50vw', xs: '100vw' }}>
                 <Box
@@ -35,14 +40,31 @@ const Caraousel = (props) => {
                         overflowX: "hidden",
                     }}
                 >
-
                     {randomDrinks.map((each) => (
                         <BannerCard
                             key={each.drinks[0].idDrink}
+                            id={each.drinks[0].idDrink}
+                            category={nameMapping[each.drinks[0].strAlcoholic]}
                             image={each.drinks[0].strDrinkThumb}
                         />
                     ))}
                 </Box>
+                <Fab
+                    size="small"
+                    aria-label="add"
+                    sx={{ position: "absolute", left: -20, top: "45%" }}
+                    onClick={() => scrollDiv(-1140, refCard)}
+                >
+                    <ArrowBackIosSharpIcon />
+                </Fab>
+                <Fab
+                    size="small"
+                    aria-label="add"
+                    sx={{ position: "absolute", right: -20, top: "45%" }}
+                    onClick={() => scrollDiv(1140, refCard)}
+                >
+                    <ArrowForwardIosSharpIcon />
+                </Fab>
             </Box>
 
             <Box width={{ md: '50vw', xs: '100vw' }} padding={5}>
@@ -55,7 +77,7 @@ const Caraousel = (props) => {
                     exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
                     dolor in reprehenderit in voluptate velit esse cillum</Typography>
             </Box>
-        </Box>
+        </Box >
     )
 }
 
