@@ -34,7 +34,13 @@ export async function getCategories() {
 export async function getDrinksByFilter(drinkType) {
     const url = `filter.php?a=${drinkType}`
     const drinksResponse = await cocktailAPI('GET', null, url)
-    const drinks = await drinksResponse.json()
+    let drinks;
+    try {
+        drinks = await drinksResponse.json()
+    }
+    catch (err) {
+        drinks = null
+    }
     return drinks
 }
 

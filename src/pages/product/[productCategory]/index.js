@@ -2,11 +2,12 @@ import { Box, Typography } from "@mui/material";
 import * as api from "../../../CocktailAPI/cocktail";
 import SingleCocktailCard from "@/components/SingleCocktailCard";
 import Head from "next/head";
+import ProductNotFound from "@/components/ErrorComponents/ProductNotFound";
 
 const ProductCategory = (props) => {
 
     const { productCategory, drinksData } = props;
-    const allDrinksData = drinksData.drinks;
+    const allDrinksData = drinksData?.drinks;
 
     const nameMapping = {
         'Alcoholic': 'Alcoholic',
@@ -21,7 +22,7 @@ const ProductCategory = (props) => {
             </Head>
             <Box>
                 <Typography variant="h4" sx={{ textAlign: "center", mt: 5, mb: 5, color: '#3F000F', fontWeight: 'bold' }}>See All {nameMapping[productCategory]} Drinks Here</Typography>
-                <SingleCocktailCard productCategory={productCategory} allDrinksData={allDrinksData} />
+                {!allDrinksData ? <ProductNotFound search={productCategory}/> : <SingleCocktailCard productCategory={productCategory} allDrinksData={allDrinksData} />}
             </Box>
         </>
     );
@@ -32,6 +33,7 @@ export default ProductCategory;
 export async function getServerSideProps(context) {
     const { productCategory } = context.query;
     const drinksData = await api.getDrinksByFilter(productCategory)
+    
     return {
         props: { productCategory, drinksData },
     }
