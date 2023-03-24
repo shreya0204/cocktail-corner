@@ -49,7 +49,6 @@ const Categories = (props) => {
                                     height="240"
                                     image={`/alcoholic${i}.png`}
                                     alt="cocktail picture"
-                                    onClick={(e) => console.log(category, i)}
                                 />
                                 <CardContent>
                                     <Typography gutterBottom variant="h6" component="div" color={'#50151A'}>

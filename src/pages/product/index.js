@@ -33,15 +33,10 @@ export default Product;
 
 export async function getServerSideProps(context) {
     const search = context.query.search;
-    console.log(search)
     let allDrinks;
-    if (search == "" || search == undefined) {
-        allDrinks = await api.getAllDrinks()
-    }
-    else {
-        allDrinks = await api.getDrinksBySearch(search)
-    }
+    if (search == "" || search == undefined) allDrinks = await api.getAllDrinks()
+    else allDrinks = await api.getDrinksBySearch(search)
     return {
-        props: { search, allDrinks }, // will be passed to the page component as props
+        props: { search, allDrinks },
     }
 }

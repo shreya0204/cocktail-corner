@@ -5,7 +5,6 @@ import ArrowRightIcon from '@mui/icons-material/ArrowRight';
 
 const CocktailDetails = (props) => {
     const { singleDrinkData } = props;
-    console.log(singleDrinkData)
 
     // filtering out the ingredients and measures
     const ingredients = [];

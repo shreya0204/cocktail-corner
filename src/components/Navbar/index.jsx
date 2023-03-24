@@ -91,7 +91,6 @@ export default function Navbar() {
                         <StyledInputBase
                             onKeyUp={(e) => {
                                 if (e.key === 'Enter') {
-                                    console.log(e.target.value)
                                     router.push(`/product?search=${e.target.value}`)
                                     // empty the search box
                                     e.target.value = ''
