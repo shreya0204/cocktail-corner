@@ -32,9 +32,10 @@ export default Product;
 
 
 export async function getServerSideProps(context) {
+    console.log("baljdhcfhd", context.query.search)
     const search = context.query.search;
     let allDrinks;
-    if (search == "" || search == undefined) allDrinks = await api.getAllDrinks()
+    if (search == undefined || search == "" || search == null) allDrinks = await api.getAllDrinks()
     else allDrinks = await api.getDrinksBySearch(search)
     return {
         props: { search, allDrinks },
