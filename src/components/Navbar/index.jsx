@@ -93,10 +93,13 @@ export default function Navbar() {
                             onClick={(e) => {
                                 e.target.value = ''
                             }}
-                            onKeyUp={(e) => {
-                                if (e.key === 'Enter') {
-                                    router.push(`/product?search=${e.target.value}`)
-                                }
+                            // onKeyUp={(e) => {
+                            //     if (e.key === 'Enter') {
+                            //         router.push(`/product?search=${e.target.value}`)
+                            //     }
+                            // }}
+                            onChange={(e) => {
+                                router.push(`/product?search=${e.target.value}`)
                             }}
                             placeholder="Search cocktails by name here…"
                             inputProps={{ 'aria-label': 'search' }}
