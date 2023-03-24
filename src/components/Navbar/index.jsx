@@ -67,10 +67,9 @@ export default function Navbar() {
                     display: 'flex',
                     justifyContent: 'space-between',
                     flexDirection: { xs: 'column', sm: 'row' },
-                    gap: '1rem'
+                    gap: '0.5rem'
                 }}>
                     <Box sx={{
-                        // display: { xs: 'none', sm: 'block' },
                         cursor: 'pointer'
                     }}>
                         <Link href="/">
@@ -91,11 +90,12 @@ export default function Navbar() {
                             <SearchIcon />
                         </SearchIconWrapper>
                         <StyledInputBase
+                            onClick={(e) => {
+                                e.target.value = ''
+                            }}
                             onKeyUp={(e) => {
                                 if (e.key === 'Enter') {
                                     router.push(`/product?search=${e.target.value}`)
-                                    // empty the search box
-                                    e.target.value = ''
                                 }
                             }}
                             placeholder="Search cocktails by name here…"
