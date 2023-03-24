@@ -34,7 +34,7 @@ const CocktailDetails = (props) => {
             padding: '1rem',
             marginTop: '10px'
         }}>
-            <Box position={"relative"} width={{ md: '50vw', xs: '100vw' }}>
+            <Box position={"relative"} width={{ md: '50vw', xs: '95vw' }}>
                 <Box sx={{
                     display: 'flex',
                     flexDirection: 'row',

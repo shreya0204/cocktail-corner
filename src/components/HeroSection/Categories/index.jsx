@@ -26,7 +26,10 @@ const Categories = (props) => {
             gap: '2rem',
             backgroundColor: '#F5F2EB',
             padding: '3rem',
-            marginTop: '4rem',
+            // marginTop: '4rem',
+            marginTop: {
+                xs: '1rem', lg: '4rem'
+            }
         }}>
             <Typography fontSize={'32px'} color="#3F000F" fontWeight={'bold'}>CATEGORIES</Typography>
             <Box sx={{
@@ -60,7 +63,7 @@ const Categories = (props) => {
                     </Link>
                 ))}
             </Box>
-        </Box>
+        </Box >
 
     );
 }

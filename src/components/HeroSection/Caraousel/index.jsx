@@ -29,7 +29,7 @@ const Caraousel = (props) => {
             flexDirection: { md: 'row', xs: 'column' },
             padding: '1rem',
         }}>
-            <Box position={"relative"} width={{ md: '50vw', xs: '100vw' }}>
+            <Box position={"relative"} width={{ md: '50vw', xs: '85vw' }}>
                 <Box
                     display={"flex"}
                     alignItems={"center"}

@@ -66,9 +66,11 @@ export default function Navbar() {
                 <Toolbar sx={{
                     display: 'flex',
                     justifyContent: 'space-between',
+                    flexDirection: { xs: 'column', sm: 'row' },
+                    gap: '1rem'
                 }}>
                     <Box sx={{
-                        display: { xs: 'none', sm: 'block' },
+                        // display: { xs: 'none', sm: 'block' },
                         cursor: 'pointer'
                     }}>
                         <Link href="/">
