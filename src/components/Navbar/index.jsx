@@ -3,13 +3,12 @@ import { styled, alpha } from '@mui/material/styles';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
-import IconButton from '@mui/material/IconButton';
-import Typography from '@mui/material/Typography';
 import InputBase from '@mui/material/InputBase';
-import MenuIcon from '@mui/icons-material/Menu';
 import SearchIcon from '@mui/icons-material/Search';
 import Image from 'next/image';
 import Link from 'next/link'
+import { useRouter } from 'next/router'
+
 
 const Search = styled('div')(({ theme }) => ({
     position: 'relative',
@@ -54,6 +53,8 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 }));
 
 export default function Navbar() {
+    const router = useRouter()
+
     return (
         <Box sx={{ flexGrow: 1 }}>
             <AppBar position="static" sx={{
@@ -88,6 +89,14 @@ export default function Navbar() {
                             <SearchIcon />
                         </SearchIconWrapper>
                         <StyledInputBase
+                            onKeyUp={(e) => {
+                                if (e.key === 'Enter') {
+                                    console.log(e.target.value)
+                                    router.push(`/product?search=${e.target.value}`)
+                                    // empty the search box
+                                    e.target.value = ''
+                                }
+                            }}
                             placeholder="Search cocktails by name here…"
                             inputProps={{ 'aria-label': 'search' }}
                         />

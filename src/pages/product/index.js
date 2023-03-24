@@ -4,10 +4,12 @@ import SingleCocktailCard from "@/components/SingleCocktailCard";
 import { Box, Typography } from "@mui/material";
 import * as api from '../../CocktailAPI/cocktail'
 import Head from "next/head";
+import ProductNotFound from "@/components/ErrorComponents/ProductNotFound";
 
 const Product = (props) => {
 
     const allDrinksData = props.allDrinks.drinks;
+    const { search } = props;
 
     return (
         <>
@@ -18,8 +20,9 @@ const Product = (props) => {
                 display: "flex",
                 flexDirection: "column",
             }}>
-                <Typography variant="h4" sx={{ textAlign: "center", mt: 5, mb: 5, color: '#3F000F', fontWeight: 'bold' }}>See All Our Drinks Here</Typography>
-                {allDrinksData ? <SingleCocktailCard allDrinksData={allDrinksData} /> : <Box>No drinks found</Box>}
+                {allDrinksData ? <>
+                    <Typography variant="h4" sx={{ textAlign: "center", mt: 5, mb: 5, color: '#3F000F', fontWeight: 'bold' }}>See All {search} Drinks Here</Typography>
+                    <SingleCocktailCard allDrinksData={allDrinksData} /> </> : <ProductNotFound search={search} />}
             </Box>
         </>
     )
@@ -29,7 +32,8 @@ export default Product;
 
 
 export async function getServerSideProps(context) {
-    const search = ""
+    const search = context.query.search;
+    console.log(search)
     let allDrinks;
     if (search == "" || search == undefined) {
         allDrinks = await api.getAllDrinks()
@@ -38,6 +42,6 @@ export async function getServerSideProps(context) {
         allDrinks = await api.getDrinksBySearch(search)
     }
     return {
-        props: { allDrinks }, // will be passed to the page component as props
+        props: { search, allDrinks }, // will be passed to the page component as props
     }
 }
