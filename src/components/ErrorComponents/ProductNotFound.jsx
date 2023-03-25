@@ -2,8 +2,8 @@ import { Box, Button, Typography } from "@mui/material";
 import SentimentDissatisfiedIcon from '@mui/icons-material/SentimentDissatisfied';
 
 const ProductNotFound = (props) => {
-    const { search, name='name' } = props;
-    
+    const { search, name = 'name' } = props;
+
     return (
         <Box sx={{
             display: 'flex',

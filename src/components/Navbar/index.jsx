@@ -7,7 +7,10 @@ import InputBase from '@mui/material/InputBase';
 import SearchIcon from '@mui/icons-material/Search';
 import Image from 'next/image';
 import Link from 'next/link'
-import { useRouter } from 'next/router'
+import { useState } from "react";
+import { useRouter } from "next/router";
+import debounce from "lodash/debounce";
+import ClearIcon from '@mui/icons-material/Clear';
 
 
 const Search = styled('div')(({ theme }) => ({
@@ -39,7 +42,6 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
     color: 'inherit',
     '& .MuiInputBase-input': {
         padding: theme.spacing(1, 1, 1, 0),
-        // vertical padding + font size from searchIcon
         paddingLeft: `calc(1em + ${theme.spacing(4)})`,
         transition: theme.transitions.create('width'),
         width: '100%',
@@ -52,16 +54,28 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
     },
 }));
 
-export default function Navbar() {
-    const router = useRouter()
 
+export default function Navbar() {
+    const router = useRouter();
+    const [searchTerm, setSearchTerm] = useState("");
+
+    const handleSearch = debounce((searchValue) => {
+        console.log(searchValue)
+        router.push(`/product?search=${searchValue}`);
+    }, 500); // Debounce time set to 500ms
+
+    const handleChange = (e) => {
+        const { value } = e.target;
+        setSearchTerm(value);
+        handleSearch(value);
+    };
     return (
         <Box sx={{ flexGrow: 1 }}>
             <AppBar position="static" sx={{
                 background: '#fff',
                 color: '#000',
                 boxShadow: 'none',
-                marginTop: '2rem',
+                marginTop: '1rem',
             }}>
                 <Toolbar sx={{
                     display: 'flex',
@@ -93,17 +107,14 @@ export default function Navbar() {
                             onClick={(e) => {
                                 e.target.value = ''
                             }}
-                            // onKeyUp={(e) => {
-                            //     if (e.key === 'Enter') {
-                            //         router.push(`/product?search=${e.target.value}`)
-                            //     }
+                            // onChange={(e) => {
+                            //     router.push(`/product?search=${e.target.value}`)
                             // }}
-                            onChange={(e) => {
-                                router.push(`/product?search=${e.target.value}`)
-                            }}
+                            onChange={handleChange}
                             placeholder="Search cocktails by name here…"
                             inputProps={{ 'aria-label': 'search' }}
                         />
+                        {/* <ClearIcon fontSize={'small'} color={'action'} cursor={'pointer'} /> */}
                     </Search>
                 </Toolbar>
             </AppBar>
