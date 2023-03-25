@@ -32,7 +32,8 @@ export default Product;
 
 
 export async function getServerSideProps(context) {
-    const search = context.query.search;
+    let search = context.query.search;
+    if (!search) search = "";
     let allDrinks;
     if (search == "" || search == undefined) allDrinks = await api.getAllDrinks()
     else allDrinks = await api.getDrinksBySearch(search)
